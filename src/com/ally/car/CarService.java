@@ -4,7 +4,7 @@ package com.ally.car;
 public class CarService {
     private final CarDAO carDAO = new CarDAO();
 
-    private Car[] getAllCars() {
+    public Car[] getAllCars() {
         return carDAO.getAllCars();
     }
 

@@ -22,7 +22,7 @@ public class CarBooking {
         this.isCancelled = isCancelled;
     }
 
-    private CarBooking(UUID bookingId, User user, Car car, LocalDateTime bookingTime) {
+    public CarBooking(UUID bookingId, User user, Car car, LocalDateTime bookingTime) {
         this(bookingId, user, car, bookingTime, false);
     }
 
