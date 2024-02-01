@@ -11,7 +11,7 @@ public class CarBookingService {
     private final  CarBookingDao carBookingDao = new CarBookingDao();
     private CarService carService= new CarService();
 
-    private UUID bookCar(User user, String regNumber) {
+    public UUID bookCar(User user, String regNumber) {
         Car[] availableCars = getAvailableCars();
 
         if (availableCars.length == 0) {
