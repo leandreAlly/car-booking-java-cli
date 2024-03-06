@@ -9,7 +9,6 @@ import com.ally.user.UserDao;
 import com.ally.user.UserFileDataAccessService;
 import com.ally.user.UserService;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
