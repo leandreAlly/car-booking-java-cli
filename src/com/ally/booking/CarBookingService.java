@@ -48,7 +48,7 @@ public class CarBookingService {
 
         for (CarBooking cb : carBookings) {
             if (cb != null && cb.getUser().getId().equals(userId)) {
-                userCars.add(carBooking);
+                userCars.add(cb.getCar());
             }
         }
 
