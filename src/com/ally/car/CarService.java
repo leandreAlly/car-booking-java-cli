@@ -1,10 +1,19 @@
 package com.ally.car;
 
 
-public class CarService {
-    private final CarDAO carDAO = new CarDAO();
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
-    public Car[] getAllCars() {
+public class CarService {
+    private final CarDAO carDAO;
+
+    public CarService(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
+
+    public List<Car> getAllCars() {
         return carDAO.getAllCars();
     }
 
@@ -18,36 +27,25 @@ public class CarService {
         throw new IllegalStateException(String.format("Car with reg %s not found", regNumber));
     }
 
-    public Car[] getAllElectricCars() {
-        int electricCarsCount = 0;
+    public List<Car> getAllElectricCars() {
 
-        Car[] cars = getAllCars();
+        List<Car> cars = getAllCars();
 
-        if (cars.length == 0) {
-            return new Car[0];
+        if (cars.size() == 0) {
+            return Collections.emptyList();
         }
+
+        List<Car> electricCars = new ArrayList<>();
 
         for (Car car : cars) {
             if (car.isElectric()) {
-                electricCarsCount++;
+                electricCars.add(car);
             }
         }
 
-        if (electricCarsCount == 0) {
-            return new Car[0];
-        }
-
-        Car[] electricCars = new Car[electricCarsCount];
-
-        int index = 0;
-
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].isElectric()) {
-                electricCars[index++] = cars[i];
-            }
-        }
 
         return electricCars;
+
     }
 
 }
